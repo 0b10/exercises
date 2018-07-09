@@ -1,6 +1,5 @@
 """
 An alternative solution for the Two Sum problem on LeetCode.com
-
 This code was not written by me, and credit is given to wanglouis49:
     https://leetcode.com/wanglouis49/
     https://leetcode.com/problems/two-sum/discuss/144554/Python-concise-O(n)-solution/152756
@@ -25,10 +24,10 @@ class Solution:
     def twoSum(self, nums, target):
         mem = dict()  # Uninitialised, lazy evaluation. The last statement of the method stores key:value pairs it.
 
-        for i, n in enumerate(nums):  # Gets (index, value) from nums, with tuple unpacking.
-            if target - n in mem:  # Each loop stores a value, and its index in the dict. Check to see if it's there.
+        for i, n in enumerate(nums):  # Gets (index, value) from enumeration(nums), and unpack it with tuple unpacking: e.g.  ' i, n '.
+            if target - n in mem:  # Lazy evaluation. Each loop stores a value, and its index in the dict. Check to see if it's there.
                 return [mem[target - n], i]  # If it's there, return the index of the value, and the current iteration
-            mem[n] = i  # This is where the lazy evaluation occurs. Store {value, index}
+            mem[n] = i  # This is where the assignment, from the lazy evaluation occurs. Store {value, index}
 
 
 solution = Solution()
