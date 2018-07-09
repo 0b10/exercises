@@ -31,7 +31,7 @@ Challenges I faced:
     * The answer must be within a 32 bit signed integer range. Python supports integers much larger than this by default.
     * That a number within that range, when reversed, can be outwith it. This threw me off initially.
     * After I had established that fact, I had to determine what the maximum value would be - which would be less than
-    (2^31)-1 and greater than it's negated compliment. As it turned out, a 'palindrome' was the answer. A number that is
+    (2^31)-1 and greater than its negated compliment. As it turned out, a 'palindrome' was the answer. A number that is
     the same when reversed turns out to the the boundary for the solution space - otherwise such solutions would have to
     either violate the max input value, or the max output value.
 '''
