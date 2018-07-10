@@ -34,10 +34,10 @@ class Solution:
         """
         num_of_jewels = 0
 
-        for stone in stones:
-            occurrences = jewels.find(stone)
+        jewels = set(jewels)
 
-            if occurrences > -1:
+        for stone in stones:
+            if stone in jewels:
                 num_of_jewels += 1
 
         return num_of_jewels
