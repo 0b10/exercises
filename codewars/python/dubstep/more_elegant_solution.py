@@ -51,6 +51,7 @@ What I learned from this alternative solution:
     substrings will still be returned.
 '''
 
+
 def song_decoder(song):
     return " ".join(song.replace('WUB', ' ').split())
 
