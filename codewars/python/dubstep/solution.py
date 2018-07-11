@@ -35,6 +35,17 @@ song_decoder("WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDWUB")
   # =>  WE ARE THE CHAMPIONS MY FRIEND
 '''
 
+'''
+What I learned from this exercise:
+    * filter(func, iterable) is a built-in function that is used to filter an iterable, and returns an iterator of the
+        newly created list.
+    * func is just a function object, and it's definition may look like: def myFnc(foo):
+    * You need to pass func in as a reference type for filter() to call it, and pass in the current iterable item,
+        similar to: 'for item in iterable'.
+    * That this is also not the most elegant solution, but filter is a very useful function.
+
+'''
+
 
 def song_decoder(song):
     return ' '.join(list(filter(None, song.split('WUB'))))
