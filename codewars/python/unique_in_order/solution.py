@@ -1,24 +1,20 @@
+from itertools import groupby
+
 """
-My horrible solution to the Unique in Order problem on codewars.
+A more elegant solution to the Unique in Order problem on codewars.
 http://www.codewars.com/kata/unique-in-order/python
 """
 
 '''
-This is an awful, hacky, unreadable solution.
-
 What I learned from this:
-    * That one-line if, else, statements are possible, with multiple clauses
-    * That accessing an index out of bounds actually seems to trigger an else clause when using the one line solution.
-        More research is needed on this.
+    * groupby() preserves order: AABBCCAA => ABCA
+    * Keys are unique consecutive items: AABBCCAA => ABCA
+    * Groups are consecutive items grouped up: AABBCCAA => AA BB CC AA
 '''
 
 
-def get_unique(i, value, iterable):
-    return value if i == 0 or value != iterable[i-1] else None
-
-
 def unique_in_order(iterable):
-    return list(filter(None, [get_unique(i, value, iterable) for i, value in enumerate(iterable)]))
+    return [key for key, _ in groupby(iterable)]
 
 
 def test(iterable, expected_result):
