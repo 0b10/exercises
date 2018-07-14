@@ -79,6 +79,6 @@ class ValidParenthesesTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    ValidParenthesesTestCase.main()
+    unittest.main()
 
 
