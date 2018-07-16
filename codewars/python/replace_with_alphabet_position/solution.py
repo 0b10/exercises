@@ -21,8 +21,13 @@ alphabet_position("The sunset sets at twelve o' clock.") Should return:
 '''
 What I learned from this exercise:
     * That str is a isalpha() method, which is useful for filtering out non-alphabetic characters.
+    * That I should have used a generator expression instead, it's more readable, and more memory efficient - although
+        not crucial here:
+        * str.join() takes any iterator or iterable, and joins them, as long as they are strings.
+        * A generator object is a specialised iterator. It's perfectly okay to join a generator object, because it can
+            be iterated over.
 '''
 
 
 def alphabet_position(text):
-    return ' '.join([str(1 + ord(c) - (ord('a'))) for c in text.lower() if c.isalpha()])
+    return ' '.join(str(1 + ord(c) - (ord('a'))) for c in text.lower() if c.isalpha())
