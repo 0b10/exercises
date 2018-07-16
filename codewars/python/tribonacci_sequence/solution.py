@@ -1,6 +1,9 @@
 """
-My initial solution for the Tribonacci Sequence problem on codewars.
+An improved solution for the Tribonacci Sequence problem on codewars.
 http://www.codewars.com/kata/tribonacci-sequence/python
+
+All credit for this improved solution goes to the people found here:
+http://www.codewars.com/kata/reviews/556deca37c58da83c00002dd/groups/5579b2b333b6657427000035
 """
 
 '''
@@ -33,15 +36,23 @@ enthusiast and for showing me this mathematical curiosity too with his usual con
 
 '''
 What I learned from this:
-    * That the expression 'a >= n >= 0' is cleaner looking than 'n < a and n > 0';
-    * As always, a better solution exists. An alternative solution will be provided.
+    * When looping over a data structure, with a 'moving window' - of sorts, slicing can be that window, and referencing
+        index items directly can be messy. x[-3:] before x[-3] + x[-2] + x[-1]
+    * That expressions, like range(), can effectively replace conditionals. It's easy to place this code within
+        conditionals, so that the loop only executes under certain conditions, but range has it's own conditions to
+        determine if the loop executes - that is 'n'. It won't execute is n <= the starting index. Essentially,
+        for-loops have their own conditional evaluation that can be leveraged, in the context with the rest of the
+        logic.
+    * That explicit statements can also replace conditionals: a = a[:n] replaced a condition testing to see whether
+        the function should return if it's < 3. Essentially here it just slices the list, and the for-loop won't
+        execute due to another (related) factor - the size of 'n'.
 '''
 
+
 def tribonacci(signature, n):
-    if 3 >= n >= 0:
-        return signature[0:n]
+    tmp_sig = signature[:n]  # This handles cases where n < 3. It will return 'n' elements. The for-loop wont execute.
 
-    for i in range(n - 3):
-        signature.append(signature[i] + signature[i + 1] + signature[i + 2])
+    for i in range(3, n):  # This won't execute if n < 3
+        tmp_sig.append(sum(tmp_sig[-3:]))  # Slice the last three items, sum, and append it. Repeat.
 
-    return signature
+    return tmp_sig
