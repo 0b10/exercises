@@ -20,7 +20,7 @@ alphabet_position("The sunset sets at twelve o' clock.") Should return:
 
 '''
 What I learned from this exercise:
-    * That str is a isalpha() method, which is useful for filtering out non-alphabetic characters.
+    * That str has a isalpha() method, which is useful for filtering out non-alphabetic characters.
     * That I should have used a generator expression instead, it's more readable, and more memory efficient - although
         not crucial here:
         * str.join() takes any iterator or iterable, and joins them, as long as they are strings.
